@@ -14,6 +14,7 @@
 		0578CB7B2B28AD0E00E8B344 /* RaccoonConvertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578CB7A2B28AD0E00E8B344 /* RaccoonConvertTests.swift */; };
 		0578CB852B28AD0E00E8B344 /* RaccoonConvertUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578CB842B28AD0E00E8B344 /* RaccoonConvertUITests.swift */; };
 		0578CB872B28AD0E00E8B344 /* RaccoonConvertUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578CB862B28AD0E00E8B344 /* RaccoonConvertUITestsLaunchTests.swift */; };
+		0578CB962B28B64000E8B344 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578CB952B28B64000E8B344 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		0578CB802B28AD0E00E8B344 /* RaccoonConvertUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaccoonConvertUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0578CB842B28AD0E00E8B344 /* RaccoonConvertUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonConvertUITests.swift; sourceTree = "<group>"; };
 		0578CB862B28AD0E00E8B344 /* RaccoonConvertUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonConvertUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0578CB952B28B64000E8B344 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				0578CB6D2B28AD0E00E8B344 /* Assets.xcassets */,
 				0578CB692B28AD0C00E8B344 /* RaccoonConvertApp.swift */,
+				0578CB952B28B64000E8B344 /* Utilities.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0578CB962B28B64000E8B344 /* Utilities.swift in Sources */,
 				0578CB6C2B28AD0C00E8B344 /* RaccoonConvertView.swift in Sources */,
 				0578CB6A2B28AD0C00E8B344 /* RaccoonConvertApp.swift in Sources */,
 			);
