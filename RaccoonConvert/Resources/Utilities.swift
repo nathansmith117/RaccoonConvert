@@ -7,8 +7,6 @@
 
 import Foundation
 
-// Decimal, hex, binary, oct.
-
 // Decimal.
 func toDecimal(value: Int) -> String?
 {
@@ -45,5 +43,18 @@ func toBinary(value: Int) -> String?
 func fromBinary(value: String) -> Int?
 {
     let converted: Int? = Int(value, radix: 2)
+    return converted
+}
+
+// Octal.
+func toOctal(value: Int) -> String?
+{
+    let converted: String? = String(value, radix: 8)
+    return converted
+}
+
+func fromOctal(value: String) -> Int?
+{
+    let converted: Int? = Int(value, radix: 8)
     return converted
 }
