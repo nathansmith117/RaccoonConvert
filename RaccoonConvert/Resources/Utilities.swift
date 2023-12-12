@@ -83,6 +83,8 @@ func convertFormat(from fromType: Int, to toType: Int, value: String?) -> String
             valueNum = fromBinary(value: value!)!
         case OCTAL:
             valueNum = fromOctal(value: value!)!
+        default:
+            valueNum = 0
         }
     }
     catch
