@@ -69,5 +69,26 @@ func convertFormat(from fromType: Int, to toType: Int, value: String?) -> String
 {
     let result: String = ""
     
+    do
+    {
+        var valueNum: Int = 0
+        
+        switch (fromType)
+        {
+        case DECIMAL:
+            valueNum = fromDecimal(value: value!)!
+        case HEX:
+            valueNum = fromHex(value: value!)!
+        case BINARY:
+            valueNum = fromBinary(value: value!)!
+        case OCTAL:
+            valueNum = fromOctal(value: value!)!
+        }
+    }
+    catch
+    {
+        print(error.localizedDescription)
+    }
+    
     return result
 }
