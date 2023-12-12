@@ -15,6 +15,7 @@
 		0578CB852B28AD0E00E8B344 /* RaccoonConvertUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578CB842B28AD0E00E8B344 /* RaccoonConvertUITests.swift */; };
 		0578CB872B28AD0E00E8B344 /* RaccoonConvertUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578CB862B28AD0E00E8B344 /* RaccoonConvertUITestsLaunchTests.swift */; };
 		0578CB962B28B64000E8B344 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578CB952B28B64000E8B344 /* Utilities.swift */; };
+		0578CB982B28BC5000E8B344 /* ConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578CB972B28BC5000E8B344 /* ConverterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		0578CB842B28AD0E00E8B344 /* RaccoonConvertUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonConvertUITests.swift; sourceTree = "<group>"; };
 		0578CB862B28AD0E00E8B344 /* RaccoonConvertUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonConvertUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0578CB952B28B64000E8B344 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		0578CB972B28BC5000E8B344 /* ConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				0578CB6B2B28AD0C00E8B344 /* RaccoonConvertView.swift */,
+				0578CB972B28BC5000E8B344 /* ConverterView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0578CB962B28B64000E8B344 /* Utilities.swift in Sources */,
+				0578CB982B28BC5000E8B344 /* ConverterView.swift in Sources */,
 				0578CB6C2B28AD0C00E8B344 /* RaccoonConvertView.swift in Sources */,
 				0578CB6A2B28AD0C00E8B344 /* RaccoonConvertApp.swift in Sources */,
 			);
