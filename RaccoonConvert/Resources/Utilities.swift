@@ -25,12 +25,25 @@ func fromDecimal(value: String) -> Int?
 // Hex.
 func toHex(value: Int) -> String?
 {
-    let converted: String? = String(format: "%x", value)
+    let converted: String? = String(value, radix: 16)
     return converted
 }
 
 func fromHex(value: String) -> Int?
 {
     let converted: Int? = Int(value, radix: 16)
+    return converted
+}
+
+// Binary.
+func toBinary(value: Int) -> String?
+{
+    let converted: String? = String(value, radix: 2)
+    return converted
+}
+
+func fromBinary(value: String) -> Int?
+{
+    let converted: Int? = Int(value, radix: 2)
     return converted
 }
