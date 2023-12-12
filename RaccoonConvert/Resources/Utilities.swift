@@ -7,6 +7,11 @@
 
 import Foundation
 
+let DECIMAL: Int = 0
+let HEX: Int = 1
+let BINARY: Int = 2
+let OCTAL: Int = 3
+
 // Decimal.
 func toDecimal(value: Int) -> String?
 {
@@ -57,4 +62,12 @@ func fromOctal(value: String) -> Int?
 {
     let converted: Int? = Int(value, radix: 8)
     return converted
+}
+
+// The magically funny funny converting thingy.
+func convertFormat(from fromType: Int, to toType: Int, value: String?) -> String
+{
+    let result: String = ""
+    
+    return result
 }
