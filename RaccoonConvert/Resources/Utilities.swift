@@ -22,4 +22,15 @@ func fromDecimal(value: String) -> Int?
     return converted
 }
 
+// Hex.
+func toHex(value: Int) -> String?
+{
+    let converted: String? = String(format: "%x", value)
+    return converted
+}
 
+func fromHex(value: String) -> Int?
+{
+    let converted: Int? = Int(value, radix: 16)
+    return converted
+}
