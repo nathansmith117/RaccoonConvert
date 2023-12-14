@@ -39,6 +39,8 @@ struct ConverterView: View
             TextField("From", text: $fromValue)
             Text(convertedValue)
         }
+        .padding()
+        .frame(maxHeight: 300)
     }
     
     func convertAction() -> Void

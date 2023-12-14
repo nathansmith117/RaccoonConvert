@@ -15,6 +15,7 @@ struct RaccoonConvertView: View
         {
             Image("raccoonBackground")
                 .resizable()
+            
             ConverterView()
         }
     }
