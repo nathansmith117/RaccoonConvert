@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053E22372B2B603500E24CBF /* CoonShootScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E22362B2B603500E24CBF /* CoonShootScene.swift */; };
+		053E22392B2B63CC00E24CBF /* CoonShootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E22382B2B63CC00E24CBF /* CoonShootView.swift */; };
 		0578CB6A2B28AD0C00E8B344 /* RaccoonConvertApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578CB692B28AD0C00E8B344 /* RaccoonConvertApp.swift */; };
 		0578CB6C2B28AD0C00E8B344 /* RaccoonConvertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578CB6B2B28AD0C00E8B344 /* RaccoonConvertView.swift */; };
 		0578CB6E2B28AD0E00E8B344 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0578CB6D2B28AD0E00E8B344 /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		053E22362B2B603500E24CBF /* CoonShootScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoonShootScene.swift; sourceTree = "<group>"; };
+		053E22382B2B63CC00E24CBF /* CoonShootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoonShootView.swift; sourceTree = "<group>"; };
 		0578CB662B28AD0C00E8B344 /* RaccoonConvert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaccoonConvert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0578CB692B28AD0C00E8B344 /* RaccoonConvertApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonConvertApp.swift; sourceTree = "<group>"; };
 		0578CB6B2B28AD0C00E8B344 /* RaccoonConvertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaccoonConvertView.swift; sourceTree = "<group>"; };
@@ -75,6 +79,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		053E22352B2B5E9500E24CBF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				053E22362B2B603500E24CBF /* CoonShootScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		0578CB5D2B28AD0C00E8B344 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +110,7 @@
 		0578CB682B28AD0C00E8B344 /* RaccoonConvert */ = {
 			isa = PBXGroup;
 			children = (
+				053E22352B2B5E9500E24CBF /* Scenes */,
 				0578CB942B28AD6400E8B344 /* Resources */,
 				0578CB932B28AD5100E8B344 /* ViewController */,
 				0578CB6F2B28AD0E00E8B344 /* Preview Content */,
@@ -135,6 +148,7 @@
 			children = (
 				0578CB6B2B28AD0C00E8B344 /* RaccoonConvertView.swift */,
 				0578CB972B28BC5000E8B344 /* ConverterView.swift */,
+				053E22382B2B63CC00E24CBF /* CoonShootView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -283,6 +297,8 @@
 				0578CB982B28BC5000E8B344 /* ConverterView.swift in Sources */,
 				0578CB6C2B28AD0C00E8B344 /* RaccoonConvertView.swift in Sources */,
 				0578CB6A2B28AD0C00E8B344 /* RaccoonConvertApp.swift in Sources */,
+				053E22372B2B603500E24CBF /* CoonShootScene.swift in Sources */,
+				053E22392B2B63CC00E24CBF /* CoonShootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
