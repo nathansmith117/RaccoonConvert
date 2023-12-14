@@ -64,32 +64,31 @@ func fromOctal(value: String) -> Int?
     return converted
 }
 
+let toCallbacks: [(Int) -> String?] = [toDecimal, toHex, toBinary, toOctal]
+let fromCallbacks: [(String) -> Int?] = [fromDecimal, fromHex, fromBinary, fromOctal]
+
 // The magically funny funny converting thingy.
 func convertFormat(from fromType: Int, to toType: Int, value: String?) -> String
 {
-    let result: String = ""
+    var result: String = ""
+    var valueNum: Int = 0
     
-    do
+    if let unwrapped = fromCallbacks[fromType](value!)
     {
-        var valueNum: Int = 0
-        
-        switch (fromType)
-        {
-        case DECIMAL:
-            valueNum = fromDecimal(value: value!)!
-        case HEX:
-            valueNum = fromHex(value: value!)!
-        case BINARY:
-            valueNum = fromBinary(value: value!)!
-        case OCTAL:
-            valueNum = fromOctal(value: value!)!
-        default:
-            valueNum = 0
-        }
+        valueNum = unwrapped
     }
-    catch
+    else
     {
-        print(error.localizedDescription)
+        return "Error converting value"
+    }
+    
+    if let unwrapped = toCallbacks[toType](valueNum)
+    {
+        result = String(unwrapped)
+    }
+    else
+    {
+        return "Error formatting output"
     }
     
     return result

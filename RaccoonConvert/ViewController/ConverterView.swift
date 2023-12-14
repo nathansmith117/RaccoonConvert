@@ -13,6 +13,7 @@ struct ConverterView: View
     @State private var toType: Int = HEX
     
     @State private var fromValue: String = ""
+    @State private var convertedValue: String = ""
     
     var body: some View
     {
@@ -34,8 +35,17 @@ struct ConverterView: View
                 Text("Octal").tag(OCTAL)
             }
             
+            Button("Convert", action: convertAction)
+            
             TextField("From", text: $fromValue)
+            
+            Text(convertedValue)
         }
+    }
+    
+    func convertAction() -> Void
+    {
+        convertedValue = convertFormat(from: fromType, to: toType, value: fromValue)
     }
 }
 
