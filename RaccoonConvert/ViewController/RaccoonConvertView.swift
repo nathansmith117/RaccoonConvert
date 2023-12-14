@@ -11,14 +11,12 @@ struct RaccoonConvertView: View
 {
     var body: some View
     {
-        VStack
+        ZStack
         {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Image("raccoonBackground")
+                .resizable()
+            ConverterView()
         }
-        .padding()
     }
 }
 

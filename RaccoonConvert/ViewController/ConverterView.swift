@@ -36,9 +36,7 @@ struct ConverterView: View
             }
             
             Button("Convert", action: convertAction)
-            
             TextField("From", text: $fromValue)
-            
             Text(convertedValue)
         }
     }
