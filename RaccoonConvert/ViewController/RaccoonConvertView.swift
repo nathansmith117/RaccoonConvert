@@ -11,14 +11,18 @@ struct RaccoonConvertView: View
 {
     var body: some View
     {
-        ZStack
+        NavigationStack
         {
-            Image("raccoonBackground")
-                .resizable()
-            
-            VStack
+            ZStack
             {
-                ConverterView()
+                Image("raccoonBackground")
+                    .resizable()
+                
+                VStack
+                {
+                    ConverterView()
+                    NavigationLink("🦝", destination: CoonShootView())
+                }
             }
         }
     }
