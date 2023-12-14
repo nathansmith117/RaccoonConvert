@@ -10,15 +10,24 @@ import SpriteKit
 class CoonShootScene: SKScene
 {
     private let shootNode: SKSpriteNode = SKSpriteNode(color: UIColor.white, size: CGSize(width: 20, height: 20))
+    private let shooterZoneHeight: CGFloat = 120.0
     
     override func didMove(to view: SKView) -> Void
     {
+        // Shoot node indeed.
+        shootNode.position = CGPoint(x: (size.width / 2.0) - (shootNode.size.width / 2.0), y: shootNode.size.height)
+        shootNode.zPosition = 2
         addChild(shootNode)
+        
+        // Shooter zone lol.
+        let shooterZoneNode: SKSpriteNode = SKSpriteNode(color: UIColor.blue, size: CGSize(width: size.width * 2.0, height: shooterZoneHeight * 2.0))
+        shooterZoneNode.zPosition = 0
+        addChild(shooterZoneNode)
     }
     
     private func moveShootNode(to location: CGPoint)
     {
-        if location.x >= 0 && location.y >= 0 && location.x <= size.width && location.y <= size.height
+        if location.x >= 0 && location.y >= 0 && location.x <= size.width && location.y <= shooterZoneHeight
         {
             shootNode.position = location
         }
