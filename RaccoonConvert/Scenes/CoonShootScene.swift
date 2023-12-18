@@ -19,8 +19,8 @@ class CoonShootScene: SKScene
     private var raccoons: [SKSpriteNode] = []
     
     private var trashcans: [SKSpriteNode] = []
-    private var tashCanAddMinTime: Int = 500 // In milliseconds
-    private var trashCanAddMaxTime: Int = 5000
+    private var trashcanAddMinTime: Int = 500 // In milliseconds
+    private var trashcanAddMaxTime: Int = 5000
     private var lastTrashcanAddedTime: TimeInterval = 0
     private var timeForNextTrashcan: TimeInterval = 0
     
@@ -85,9 +85,26 @@ class CoonShootScene: SKScene
         }
     }
     
+    private func generateTimeForNextTrashcan() -> TimeInterval
+    {
+        var generatedTime = TimeInterval(Int(arc4random()) % (trashcanAddMaxTime - trashcanAddMinTime) + trashcanAddMinTime) / 1000.0
+        return generatedTime
+    }
+    
     private func updateTrashcans(_ currentTime: TimeInterval, _ deltaTime: TimeInterval) -> Void
     {
         
+        // Add trash cans.
+        if currentTime - lastTrashcanAddedTime >= timeForNextTrashcan
+        {
+            let trashcan: SKSpriteNode = SKSpriteNode(texture: SKTexture(imageNamed: "trashcan"), color: UIColor.black, size: CGSize(width: 30, height: 30))
+            trashcan.position = CGPoint(x: trashcan.size.width, y: size.height - trashcan.size.height)
+            trashcans.append(trashcan)
+            addChild(trashcan)
+            
+            lastTrashcanAddedTime = currentTime
+            timeForNextTrashcan = generateTimeForNextTrashcan()
+        }
     }
     
     private func calculateDeltaTime(from currentTime: TimeInterval) -> TimeInterval
