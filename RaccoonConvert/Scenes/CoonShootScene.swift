@@ -18,6 +18,12 @@ class CoonShootScene: SKScene
     private var lastRaccoonAddedTime: TimeInterval = 0
     private var raccoons: [SKSpriteNode] = []
     
+    private var trashcans: [SKSpriteNode] = []
+    private var tashCanAddMinTime: Int = 500 // In milliseconds
+    private var trashCanAddMaxTime: Int = 5000
+    private var lastTrashcanAddedTime: TimeInterval = 0
+    private var timeForNextTrashcan: TimeInterval = 0
+    
     private var lastUpdateTime: TimeInterval = 0
     
     override func didMove(to view: SKView) -> Void
@@ -39,10 +45,16 @@ class CoonShootScene: SKScene
         
         let deltaTime = calculateDeltaTime(from: currentTime)
         
+        updateRaccoons(currentTime, deltaTime)
+        updateTrashcans(currentTime, deltaTime)
+    }
+    
+    private func updateRaccoons(_ currentTime: TimeInterval, _ deltaTime: TimeInterval) -> Void
+    {
         // Raccoon machine gun lol.
         if isShooting && currentTime - lastRaccoonAddedTime >= raccoonAddSpeed
         {
-            let raccoon: SKSpriteNode = SKSpriteNode(color: UIColor.brown, size: CGSize(width: 30, height: 30))
+            let raccoon: SKSpriteNode = SKSpriteNode(texture: SKTexture(imageNamed: "raccoonSprite"), color: UIColor.black, size: CGSize(width: 30, height: 30))
             raccoon.position = shootNode.position
             raccoons.append(raccoon)
             addChild(raccoon)
@@ -71,6 +83,11 @@ class CoonShootScene: SKScene
             raccoons[index].removeFromParent()
             raccoons.remove(at: index)
         }
+    }
+    
+    private func updateTrashcans(_ currentTime: TimeInterval, _ deltaTime: TimeInterval) -> Void
+    {
+        
     }
     
     private func calculateDeltaTime(from currentTime: TimeInterval) -> TimeInterval
