@@ -87,7 +87,7 @@ class CoonShootScene: SKScene
     
     private func generateTimeForNextTrashcan() -> TimeInterval
     {
-        var generatedTime = TimeInterval(Int(arc4random()) % (trashcanAddMaxTime - trashcanAddMinTime) + trashcanAddMinTime) / 1000.0
+        let generatedTime = TimeInterval(Int(arc4random()) % (trashcanAddMaxTime - trashcanAddMinTime) + trashcanAddMinTime) / 1000.0
         return generatedTime
     }
     
@@ -104,6 +104,11 @@ class CoonShootScene: SKScene
             
             lastTrashcanAddedTime = currentTime
             timeForNextTrashcan = generateTimeForNextTrashcan()
+        }
+        
+        for (index, trashcan) in trashcans.enumerated()
+        {
+            trashcan.position.y -= 30.0 * deltaTime
         }
     }
     
