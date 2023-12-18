@@ -13,8 +13,11 @@ class CoonShootScene: SKScene
     private let shooterZoneHeight: CGFloat = 120.0
     private var isShooting: Bool = false
     
-    private var raccoonAddSpeed: TimeInterval = 500
+    private var raccoonAddSpeed: TimeInterval = 1
+    private let raccoonSpeed: CGFloat = 700.0
     private var lastRaccoonAddedTime: TimeInterval = 0
+    private var raccoons: [SKSpriteNode] = []
+    
     private var lastUpdateTime: TimeInterval = 0
     
     override func didMove(to view: SKView) -> Void
@@ -36,10 +39,37 @@ class CoonShootScene: SKScene
         
         let deltaTime = calculateDeltaTime(from: currentTime)
         
-        // Raccoon machine gun lol
+        // Raccoon machine gun lol.
         if isShooting && currentTime - lastRaccoonAddedTime >= raccoonAddSpeed
         {
+            let raccoon: SKSpriteNode = SKSpriteNode(color: UIColor.brown, size: CGSize(width: 30, height: 30))
+            raccoon.position = shootNode.position
+            raccoons.append(raccoon)
+            addChild(raccoon)
+            
             lastRaccoonAddedTime = currentTime
+        }
+        
+        var raccoonsToRemove: [Int] = []
+        
+        // Update raccoons.
+        for (index, raccoon) in raccoons.enumerated()
+        {
+            raccoon.position.y += raccoonSpeed * deltaTime
+            
+            // Remove out of bounds raccoon.
+            // We can't remove raccoons while looping over them so we make of a list of raccoons to remove.
+            if raccoon.position.y >= size.height + raccoon.size.height
+            {
+                raccoonsToRemove.append(index)
+            }
+        }
+        
+        // Remove raccoons.
+        for index in raccoonsToRemove
+        {
+            raccoons[index].removeFromParent()
+            raccoons.remove(at: index)
         }
     }
     
