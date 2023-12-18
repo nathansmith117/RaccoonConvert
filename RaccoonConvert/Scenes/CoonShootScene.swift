@@ -27,9 +27,26 @@ class CoonShootScene: SKScene
     
     private func moveShootNode(to location: CGPoint)
     {
-        if location.x >= 0 && location.y >= 0 && location.x <= size.width && location.y <= shooterZoneHeight
+        shootNode.position = location
+        
+        let shootWidth = shootNode.size.width / 2.0
+        let shootHeight = shootNode.size.height / 2.0
+        
+        if shootNode.position.x < shootWidth
         {
-            shootNode.position = location
+            shootNode.position.x = shootWidth
+        }
+        if shootNode.position.y < shootHeight
+        {
+            shootNode.position.y = shootHeight
+        }
+        if shootNode.position.x > size.width - shootWidth
+        {
+            shootNode.position.x = size.width - shootWidth
+        }
+        if shootNode.position.y > shooterZoneHeight - shootHeight
+        {
+            shootNode.position.y = shooterZoneHeight - shootHeight
         }
     }
     
