@@ -11,6 +11,11 @@ class CoonShootScene: SKScene
 {
     private let shootNode: SKSpriteNode = SKSpriteNode(color: UIColor.white, size: CGSize(width: 20, height: 20))
     private let shooterZoneHeight: CGFloat = 120.0
+    private var isShooting: Bool = false
+    
+    private var raccoonAddSpeed: TimeInterval = 500
+    private var lastRaccoonAddedTime: TimeInterval = 0
+    private var lastUpdateTime: TimeInterval = 0
     
     override func didMove(to view: SKView) -> Void
     {
@@ -23,6 +28,32 @@ class CoonShootScene: SKScene
         let shooterZoneNode: SKSpriteNode = SKSpriteNode(color: UIColor.blue, size: CGSize(width: size.width * 2.0, height: shooterZoneHeight * 2.0))
         shooterZoneNode.zPosition = 0
         addChild(shooterZoneNode)
+    }
+    
+    override func update(_ currentTime: TimeInterval)
+    {
+        super.update(currentTime)
+        
+        let deltaTime = calculateDeltaTime(from: currentTime)
+        
+        // Raccoon machine gun lol
+        if isShooting && currentTime - lastRaccoonAddedTime >= raccoonAddSpeed
+        {
+            lastRaccoonAddedTime = currentTime
+        }
+    }
+    
+    private func calculateDeltaTime(from currentTime: TimeInterval) -> TimeInterval
+    {
+        if lastUpdateTime.isZero
+        {
+            lastUpdateTime = currentTime
+        }
+        
+        let deltaTime = currentTime - lastUpdateTime
+        lastUpdateTime = currentTime
+        
+        return deltaTime
     }
     
     private func moveShootNode(to location: CGPoint)
@@ -56,6 +87,7 @@ class CoonShootScene: SKScene
         else { return }
         
         moveShootNode(to: touch.location(in: self))
+        isShooting = true
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -72,6 +104,7 @@ class CoonShootScene: SKScene
         else { return }
         
         moveShootNode(to: touch.location(in: self))
+        isShooting = false
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -80,5 +113,6 @@ class CoonShootScene: SKScene
         else { return }
         
         moveShootNode(to: touch.location(in: self))
+        isShooting = false
     }
 }
