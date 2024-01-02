@@ -108,7 +108,6 @@ class CoonShootScene: SKScene
         }
         
         var trashcansToRemove: [Int] = []
-        var raccoonsToRemove: [Int] = []
         
         for (index, trashcan) in trashcans.enumerated()
         {
@@ -129,15 +128,10 @@ class CoonShootScene: SKScene
                 if (trashcan.intersects(raccoon))
                 {
                     trashcansToRemove.append(index)
-                    raccoonsToRemove.append(raccoonIndex)
+                    raccoon.removeFromParent()
+                    raccoons.remove(at: raccoonIndex)
                 }
             }
-        }
-        
-        for index in raccoonsToRemove
-        {
-            raccoons[index].removeFromParent()
-            raccoons.remove(at: index)
         }
         
         for index in trashcansToRemove
