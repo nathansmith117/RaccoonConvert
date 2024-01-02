@@ -107,7 +107,7 @@ class CoonShootScene: SKScene
             timeForNextTrashcan = generateTimeForNextTrashcan()
         }
         
-        for (index, trashcan) in trashcans.enumerated()
+        for trashcan in trashcans
         {
             let row = trashcan.position.y / trashcan.size.height
             let direction = (CGFloat)(((Int)(row) % 2 == 0) ? -1 : 1)
