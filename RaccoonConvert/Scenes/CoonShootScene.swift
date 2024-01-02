@@ -21,7 +21,7 @@ class CoonShootScene: SKScene
     private var trashcans: [SKSpriteNode] = []
     private let trashcanSpeed: CGFloat = 60.0
     private var trashcanAddMinTime: Int = 500 // In milliseconds
-    private var trashcanAddMaxTime: Int = 5000
+    private var trashcanAddMaxTime: Int = 4000
     private var lastTrashcanAddedTime: TimeInterval = 0
     private var timeForNextTrashcan: TimeInterval = 0
     
@@ -107,7 +107,10 @@ class CoonShootScene: SKScene
             timeForNextTrashcan = generateTimeForNextTrashcan()
         }
         
-        for trashcan in trashcans
+        var trashcansToRemove: [Int] = []
+        var raccoonsToRemove: [Int] = []
+        
+        for (index, trashcan) in trashcans.enumerated()
         {
             let row = trashcan.position.y / trashcan.size.height
             let direction = (CGFloat)(((Int)(row) % 2 == 0) ? -1 : 1)
@@ -119,6 +122,28 @@ class CoonShootScene: SKScene
             {
                 trashcan.position.y -= trashcan.size.height
             }
+            
+            // Does collide.
+            for (raccoonIndex, raccoon) in raccoons.enumerated()
+            {
+                if (trashcan.intersects(raccoon))
+                {
+                    trashcansToRemove.append(index)
+                    raccoonsToRemove.append(raccoonIndex)
+                }
+            }
+        }
+        
+        for index in raccoonsToRemove
+        {
+            raccoons[index].removeFromParent()
+            raccoons.remove(at: index)
+        }
+        
+        for index in trashcansToRemove
+        {
+            trashcans[index].removeFromParent()
+            trashcans.remove(at: index)
         }
     }
     
