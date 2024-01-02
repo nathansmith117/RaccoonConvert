@@ -19,6 +19,7 @@ class CoonShootScene: SKScene
     private var raccoons: [SKSpriteNode] = []
     
     private var trashcans: [SKSpriteNode] = []
+    private let trashcanSpeed: CGFloat = 60.0
     private var trashcanAddMinTime: Int = 500 // In milliseconds
     private var trashcanAddMaxTime: Int = 5000
     private var lastTrashcanAddedTime: TimeInterval = 0
@@ -109,9 +110,15 @@ class CoonShootScene: SKScene
         for (index, trashcan) in trashcans.enumerated()
         {
             let row = trashcan.position.y / trashcan.size.height
-            let direction = (CGFloat)(((Int)(row) % 2 == 0) ? 1 : -1)
+            let direction = (CGFloat)(((Int)(row) % 2 == 0) ? -1 : 1)
             
-            trashcan.position.x += (CGFloat)((direction * 30.0) * deltaTime)
+            trashcan.position.x += (CGFloat)((direction * trashcanSpeed) * deltaTime)
+            
+            // Next row.
+            if (trashcan.position.x <= 0 || trashcan.position.x >= size.width)
+            {
+                trashcan.position.y -= trashcan.size.height
+            }
         }
     }
     
