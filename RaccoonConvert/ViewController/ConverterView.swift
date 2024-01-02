@@ -45,7 +45,9 @@ struct ConverterView: View
     
     func convertAction() -> Void
     {
+        //startCall
         convertedValue = convertFormat(from: fromType, to: toType, value: fromValue)
+        //endCall
     }
 }
 

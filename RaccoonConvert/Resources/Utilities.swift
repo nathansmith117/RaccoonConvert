@@ -68,11 +68,13 @@ let toCallbacks: [(Int) -> String?] = [toDecimal, toHex, toBinary, toOctal]
 let fromCallbacks: [(String) -> Int?] = [fromDecimal, fromHex, fromBinary, fromOctal]
 
 // The magically funny funny converting thingy.
+//startMethod
 func convertFormat(from fromType: Int, to toType: Int, value: String?) -> String
 {
     var result: String = ""
     var valueNum: Int = 0
     
+    //startUse
     if let unwrapped = fromCallbacks[fromType](value!)
     {
         valueNum = unwrapped
@@ -81,6 +83,7 @@ func convertFormat(from fromType: Int, to toType: Int, value: String?) -> String
     {
         return "Error converting value"
     }
+    //enduse
     
     if let unwrapped = toCallbacks[toType](valueNum)
     {
@@ -93,3 +96,4 @@ func convertFormat(from fromType: Int, to toType: Int, value: String?) -> String
     
     return result
 }
+//endMethod
